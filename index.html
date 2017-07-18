@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Descargar Soundcloud</title>
+</head>
+<body>
+	<form autocomplete="off" id="form">
+		<input type="text" name="code" placeholder="Iframe Soundcloud" onclick="this.select();">
+		<input type="submit">
+	</form>
+	<div class="hidden" style="display:none">
+		<a href="" class="mp3" download>Descargar MP3</a><br>
+		<a href="" class="m3u">Descargar M3U</a><br>
+		<p style="display:flex;align-items:center;">
+			Preview:
+			<audio class="prev" src="" controls></audio>
+		</p>
+	</div>
+
+
+	<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+	(function($) {
+		$(".hidden").hide();
+		$("#form").on("submit", function(e) {
+			e.preventDefault();
+			var id = this.code.value.match(/tracks\/(.*?)&/i)[1];
+			$("#screate").html('<script src="//api.soundcloud.com/i1/tracks/'+id+'/streams?client_id=cUa40O3Jg3Emvp6Tv4U6ymYYO50NUGpJ&callback=get"><\/script>');
+		});
+	}(jQuery));
+	function get(json) {
+		$(".mp3").attr('href', json.http_mp3_128_url);
+		$(".m3u").attr('href', json.hls_mp3_128_url);
+		$(".prev").attr('src', json.preview_mp3_128_url);
+		$(".hidden").show();
+	}
+	</script>
+	<div id="screate"></div>
+</body>
+</html>
