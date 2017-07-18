@@ -20,22 +20,7 @@
 
 
 	<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
-	<script type="text/javascript">
-	(function($) {
-		$(".hidden").hide();
-		$("#form").on("submit", function(e) {
-			e.preventDefault();
-			var id = this.code.value.match(/tracks\/(.*?)&/i)[1];
-			$("#screate").html('<script src="//api.soundcloud.com/i1/tracks/'+id+'/streams?client_id=cUa40O3Jg3Emvp6Tv4U6ymYYO50NUGpJ&callback=get"><\/script>');
-		});
-	}(jQuery));
-	function get(json) {
-		$(".mp3").attr('href', json.http_mp3_128_url);
-		$(".m3u").attr('href', json.hls_mp3_128_url);
-		$(".prev").attr('src', json.preview_mp3_128_url);
-		$(".hidden").show();
-	}
-	</script>
+	<script type="text/javascript">eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('(0($){$(".5").x();$("#w").t("k",0(e){e.j();f a=b.p.c.d(/7\\/(.*?)&/i)[1];$("#g").h(\'<6 3="//l.m.n/o/7/\'+a+\'/9?q=r&s=4"><\\/6>\')})}(u));0 4(a){$(".v").2(\'8\',a.y);$(".z").2(\'8\',a.A);$(".B").2(\'3\',a.C);$(".5").D()}',40,40,'function||attr|src|get|hidden|script|tracks|href|streams||this|value|match||var|screate|html||preventDefault|submit|api|soundcloud|com|i1|code|client_id|cUa40O3Jg3Emvp6Tv4U6ymYYO50NUGpJ|callback|on|jQuery|mp3|form|hide|http_mp3_128_url|m3u|hls_mp3_128_url|prev|preview_mp3_128_url|show'.split('|'),0,{}))</script>
 	<div id="screate"></div>
 </body>
 </html>
